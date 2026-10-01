@@ -1,0 +1,26 @@
+{
+  "name": "dsh-comfyui",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "dsh 原生 ComfyUI 插件：直连本机 ComfyUI HTTP API，注册 comfy_status / comfy_list / comfy_submit / comfy_watch 等工具，让 dsh 智能体直接驱动 ComfyUI 出图出视频。",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/dsh-tools": "^0.1.5-rc.2"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "comfyui",
+    "stable-diffusion"
+  ],
+  "license": "MIT"
+}
