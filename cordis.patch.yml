@@ -1,0 +1,23 @@
+# ============================================================================
+# dsh-comfyui —— DSH bundle patch（挂载声明）
+# ============================================================================
+# DSH 启动时按 bundle 层栈依次叠加：每个 bundle 的 cordis.patch.yml →
+# profile 自己的 cordis.patch.yml。本文件负责把本插件插入配置树。
+#
+# 为什么需要它：profile 自己的 cordis.patch.yml 里写一个新 id 的普通条目
+# 是无效的（补丁只能覆盖已存在的 id），新增插件必须走 insert；而把这条
+# insert 放进 bundle 里，插件就能像 @deepseek-ai/* 官方 bundle 一样被安装
+# 和挂载，用户不需要手工改 profile 配置。
+#
+# config 留空即用 index.js 里的默认值（baseUrl=http://127.0.0.1:8188，
+# outputDir=D:/AI/dsh workflow/comfyui_output）。要改配置不必动本文件，
+# 在 profile 的 cordis.patch.yml 里覆盖同 id 即可：
+#   - id: comfyui-native
+#     name: dsh-comfyui
+#     config: { outputDir: D:/somewhere/else }
+# ============================================================================
+
+- insert:
+    - id: comfyui-native
+      name: dsh-comfyui
+      config: {}
